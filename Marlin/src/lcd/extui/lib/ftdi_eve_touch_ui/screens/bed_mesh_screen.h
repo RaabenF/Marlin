@@ -33,7 +33,6 @@ struct BedMeshScreenData {
   uint8_t count;
   uint8_t highlightedTag;
   float zAdjustment;
-  bool allowEditing;
 };
 
 class BedMeshScreen : public BaseScreen, public CachedScreen<BED_MESH_SCREEN_CACHE> {
@@ -64,6 +63,5 @@ class BedMeshScreen : public BaseScreen, public CachedScreen<BED_MESH_SCREEN_CAC
     static bool onTouchEnd(uint8_t tag);
 
     static void startMeshProbe();
-    static void showMesh();
     static void showMeshEditor();
 };

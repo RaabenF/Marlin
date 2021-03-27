@@ -22,13 +22,6 @@
 #pragma once
 #include "../extended/screen_types.h"
 
-void draw_adjuster_value(
-  CommandProcessor& cmd,
-  int16_t x, int16_t y, int16_t w, int16_t h,
-  float value, progmem_str units = nullptr,
-  int8_t width = 5, uint8_t precision = 1
-);
-
 void draw_adjuster(
   CommandProcessor& cmd,
   int16_t x, int16_t y, int16_t w, int16_t h,
