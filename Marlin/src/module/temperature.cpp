@@ -2807,6 +2807,7 @@ HAL_TEMP_TIMER_ISR() {
 class SoftPWM {
 public:
   uint8_t count;
+  uint8_t amount;
   inline bool add(const uint8_t mask, const uint8_t amount) {
     count = (count & mask) + amount; return (count > mask);
   }
@@ -2892,7 +2893,15 @@ void Temperature::isr() {
       #endif
 
       #if HAS_HEATED_CHAMBER
-        _PWM_MOD(CHAMBER,soft_pwm_chamber,temp_chamber);
+        #if ENABLED(ONEFAN)
+          #if HAS_FAN
+            if(fan_speed[0]>temp_chamber.soft_pwm_amount)
+              temp_chamber.soft_pwm_amount=fan_speed[0];
+            _PWM_MOD(CHAMBER,soft_pwm_chamber,temp_chamber);
+          #endif
+        #else
+          _PWM_MOD(CHAMBER,soft_pwm_chamber,temp_chamber);
+        #endif
       #endif
 
       #if HAS_COOLER

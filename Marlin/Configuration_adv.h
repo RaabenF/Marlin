@@ -160,6 +160,7 @@
   #define HEATER_CHAMBER_PIN      P2_03   // Required heater on/off pin (example: SKR 1.4 Turbo HE1 plug)
   #define HEATER_CHAMBER_INVERTING true
   //#define FAN1_PIN                   -1   // Remove the fan signal on pin P2_04 (example: SKR 1.4 Turbo HE1 plug)
+  #define ONEFAN true
 
   //#define CHAMBER_FAN               // Enable a fan on the chamber
   #if ENABLED(CHAMBER_FAN)
